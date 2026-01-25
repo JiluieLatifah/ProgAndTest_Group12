@@ -1,17 +1,18 @@
 from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey, Table, Text
 from sqlalchemy.orm import relationship, declarative_base
 from datetime import date
+from flask_sqlalchemy import SQLAlchemy
 
-Base = declarative_base()
+db = SQLAlchemy()
 
 contact_group_association = Table(
     'contact_group_association',
-    Base.metadata,
+    db.Model.metadata,
     Column('contact_id', Integer, ForeignKey('contacts.contact_id')),
     Column('group_id', Integer, ForeignKey('groups.group_id'))
 )
 
-class User(Base):
+class User(db.Model):
     __tablename__ = 'users'
 
     # Các thuộc tính
@@ -30,7 +31,7 @@ class User(Base):
     def __repr__(self):
         return f"<User(id={self.user_id}, fullname='{self.fullname}'>"
     
-class AddressBook(Base):
+class AddressBook(db.Model):
     __tablename__ = 'address_books'
 
     book_id = Column(Integer, primary_key=True, autoincrement=True)
@@ -48,7 +49,7 @@ class AddressBook(Base):
         return f"<AddressBook(id={self.book_id}, name='{self.book_name}')>"
 
 # Contact
-class Contact(Base):
+class Contact(db.Model):
     __tablename__ = 'contacts'
 
     contact_id = Column(Integer, primary_key=True, autoincrement=True)
@@ -71,7 +72,7 @@ class Contact(Base):
         return f"<Contact(id={self.contact_id}, name='{self.name}')>"
     
 # Group
-class Group(Base):
+class Group(db.Model):
     __tablename__ = 'groups'
 
     group_id = Column(Integer, primary_key=True, autoincrement=True)
@@ -93,5 +94,5 @@ if __name__ == "__main__":
 
     engine= create_engine('sqlite:///address_book.db', echo=True)
     print("Creating database...")
-    Base.metadata.create_all(engine)   
+    db.Model.metadata.create_all(engine)   
     print("Database created.")
