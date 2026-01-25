@@ -24,7 +24,7 @@ class User(db.Model):
     date_of_birth = Column(Date)
     gender = Column(String(10))
     address = Column(String(255))
-    phone = Column(String(20))
+    phoneNumber = Column(String(15))
 
     # 1 User có nhiều AddressBook
     address_books = relationship('AddressBook', back_populates='user', cascade='all, delete-orphan')
