@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files (File rác khi chạy Python)
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cài đặt môi trường ảo (Nếu nhóm dùng venv)
+venv/
+env/
+ENV/
+
+# Database (Quan trọng: Đừng đẩy file database cá nhân lên nếu dùng SQLite)
+*.sqlite3
+instance/
+
+# File nhật ký
+*.log
+
+# File cấu hình cá nhân của VS Code hoặc PyCharm
+.vscode/
+.idea/
+
+# File tạm của hệ điều hành
+.DS_Store
+Thumbs.db
