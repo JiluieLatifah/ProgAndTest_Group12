@@ -1,1 +1,473 @@
+/* ===== RESET & GLOBAL ===== */
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
 
+body {
+    margin: 0;
+    background: #f4f6f8;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: linear-gradient(90deg, #2c3e50, #34495e);
+    color: #fff;
+    padding: 16px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-menu a {
+    color: #ecf0f1;
+    margin-left: 22px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #1abc9c;
+}
+
+.logout {
+    color: #e74c3c !important;
+}
+
+/* ===== PAGE LAYOUT ===== */
+.page {
+    padding: 40px 20px;
+}
+
+.page-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+}
+
+.page-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* ===== BUTTONS ===== */
+.add-btn {
+    background: #3498db;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.add-btn:hover {
+    background: #2980b9;
+}
+
+/* ===== TABLE ===== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 14px 14px;
+    border-bottom: 1px solid #e6e9ee;
+    text-align: left;
+    font-size: 14px;
+}
+
+th {
+    background: #f3f5f9;
+    font-weight: 600;
+    color: #34495e;
+}
+
+tr:hover {
+    background: #f9fbfd;
+}
+
+/* ===== ACTION LINKS ===== */
+.action a {
+    margin-right: 12px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.edit {
+    color: #3498db;
+}
+
+.edit:hover {
+    text-decoration: underline;
+}
+
+.delete {
+    color: #e74c3c;
+}
+
+.delete:hover {
+    text-decoration: underline;
+}
+
+/* ===== CENTER BOX (LOGIN / REGISTER / WELCOME) ===== */
+.center-wrapper {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* ===== FORM ===== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+input {
+    padding: 11px 12px;
+    border-radius: 6px;
+    border: 1px solid #d0d5dd;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 11px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+/* ===== AUTH LINKS ===== */
+.auth-link {
+    margin-top: 14px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.auth-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===== HOME PAGE ===== */
+.home-wrapper {
+    min-height: calc(100vh - 90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #eef2f7, #f9fbfd);
+}
+
+.home-card {
+    width: 400px;
+    background: #ffffff;
+    padding: 40px 34px;
+    border-radius: 14px;
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.1);
+}
+
+.home-title {
+    margin-bottom: 12px;
+    font-size: 26px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.home-subtitle {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 28px;
+}
+
+.home-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background: #3498db;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.home-btn:hover {
+    background: #2980b9;
+}
+
+.home-switch {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #555;
+}
+
+.home-switch a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.home-switch a:hover {
+    text-decoration: underline;
+}
+
+/* ===== CLEAN HOME PAGE ===== */
+.clean-home {
+    padding: 38px 32px;
+}
+
+.home-main-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.home-desc {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 26px;
+}
+
+.home-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 22px;
+}
+
+.home-btn {
+    flex: 1;
+    padding: 11px;
+    text-align: center;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.home-btn.primary {
+    background: #3498db;
+    color: rgb(56, 53, 53);
+}
+
+.home-btn.primary:hover {
+    background: #2980b9;
+}
+
+.home-btn.outline {
+    border: 1px solid #3498db;
+    color: #3498db;
+    background: white;
+}
+
+.home-btn.outline:hover {
+    background: #f2f8fd;
+}
+
+.home-note {
+    font-size: 13px;
+    color: #95a5a6;
+}
+/* ===== DARK ANDROID THEME ===== */
+body {
+    background: #2b2b2b;
+    color: #ffffff;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: #1f1f1f;
+    border-bottom: 1px solid #333;
+}
+
+.nav-menu a {
+    color: #cccccc;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #2196f3;
+}
+
+.logout {
+    color: #ff5252 !important;
+}
+
+/* ===== PAGE BACKGROUND ===== */
+.page,
+.home-wrapper {
+    background: #2b2b2b;
+}
+
+/* ===== CARD ===== */
+.card,
+.home-card {
+    background: #3a3a3a;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+/* ===== HOME ===== */
+.home-title,
+.home-main-title {
+    color: #ffffff;
+}
+
+.home-subtitle,
+.home-desc,
+.home-note {
+    color: #b0b0b0;
+}
+
+/* ===== INPUT ===== */
+input {
+    background: #2b2b2b;
+    border: 1px solid #555;
+    color: #ffffff;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+input:focus {
+    border-color: #2196f3;
+}
+
+/* ===== BUTTON ===== */
+button,
+.home-btn,
+.add-btn {
+    background: #2196f3;
+    color: #ffffff;
+}
+
+button:hover,
+.home-btn:hover,
+.add-btn:hover {
+    background: #1976d2;
+}
+
+/* ===== OUTLINE BUTTON ===== */
+.home-btn.outline {
+    background: transparent;
+    border: 1px solid #2196f3;
+    color: #2196f3;
+}
+
+.home-btn.outline:hover {
+    background: rgba(33,150,243,0.1);
+}
+
+/* ===== TABLE ===== */
+table {
+    background: #3a3a3a;
+}
+
+th {
+    background: #424242;
+    color: #ffffff;
+}
+
+td {
+    color: #e0e0e0;
+}
+
+tr:hover {
+    background: #444;
+}
+
+/* ===== LINKS ===== */
+a {
+    color: #2196f3;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===== WHITE INPUT LIKE ANDROID FORM ===== */
+.center-card input {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #cccccc;
+}
+
+.center-card input::placeholder {
+    color: #888888;
+}
+
+.center-card input:focus {
+    border-color: #2196f3;
+    background: #ffffff;
+}
