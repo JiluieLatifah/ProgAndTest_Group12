@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="center-wrapper">
+    <div class="card center-card" style="max-width:480px;">
+
+        <!-- TITLE -->
+        <h2 style="margin-bottom:6px; text-align:center;">
+            Add / Edit Contact
+        </h2>
+        <p style="margin-bottom:22px; font-size:14px; color:#b0b0b0; text-align:center;">
+            Create or update contact information
+        </p>
+
+        <!-- FORM -->
+        <form id="contactForm">
+
+                <!-- ID ẨN - PHÂN BIỆT ADD / EDIT -->
+            <input type="hidden" name="id" value="{{ contact.id if contact else '' }}">
+
+            <label>Name</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter full name"
+                required
+            >
+
+            <label>Email</label>
+            <input
+                type="email"
+                name="email"
+                placeholder="Enter email address"
+            >
+
+            <label>Phone</label>
+            <input
+                type="text"
+                name="phone"
+                placeholder="Enter phone number"
+            >
+
+            <button
+                type="submit"
+                class="add-btn"
+                style="margin-top:14px; width:100%;"
+            >
+                Save Contact
+            </button>
+        </form>
+
+        <!-- MESSAGE -->
+        <p
+            id="msg"
+            style="margin-top:14px; font-size:14px; text-align:center;"
+        ></p>
+
+    </div>
+</div>
+
+<!-- AJAX SCRIPT -->
+<script src="{{ url_for('static', filename='contact.js') }}"></script>
+{% endblock %}

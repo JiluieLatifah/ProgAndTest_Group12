@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+
+    <!-- HEADER -->
+    <div class="page-header">
+        <h2>Contact List</h2>
+        <a href="/contact/add" class="add-btn">+ Add Contact</a>
+    </div>
+
+    <!-- CONTACT TABLE -->
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th width="180">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!-- Contact 1 -->
+            <tr>
+                <td>Nguyen Van A</td>
+                <td>0901234567</td>
+                <td>a@gmail.com</td>
+                <td class="action">
+                    <a href="#" class="edit">View</a>
+                    <a href="/contact/edit" class="edit">Edit</a>
+                    <a href="#" class="delete"
+                       onclick="return confirm('Are you sure you want to delete this contact?')">
+                       Delete
+                    </a>
+                </td>
+            </tr>
+
+            <!-- Contact 2 -->
+            <tr>
+                <td>Tran Thi B</td>
+                <td>0912345678</td>
+                <td>b@gmail.com</td>
+                <td class="action">
+                    <a href="#" class="edit">View</a>
+                    <a href="/contact/edit" class="edit">Edit</a>
+                    <a href="#" class="delete"
+                       onclick="return confirm('Are you sure you want to delete this contact?')">
+                       Delete
+                    </a>
+                </td>
+            </tr>
+
+            <!-- Empty state-->
+            <!--
+            <tr>
+                <td colspan="4" style="text-align:center; color:#888;">
+                    No contacts found
+                </td>
+            </tr>
+            -->
+        </tbody>
+    </table>
+
+<script src="{{ url_for('static', filename='contact.js') }}"></script>
+
+</div>
+{% endblock %}

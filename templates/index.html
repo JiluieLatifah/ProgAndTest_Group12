@@ -1,1 +1,22 @@
+{% extends "base.html" %}
 
+{% block content %}
+<div class="home-wrapper">
+    <div class="home-card clean-home">
+        <h1 class="home-main-title">PhoneBook Management</h1>
+
+        <p class="home-desc">
+            Manage your contacts and groups in a simple, secure way.
+        </p>
+
+        <div class="home-actions">
+            <a href="/login" class="home-btn primary">Login</a>
+            <a href="/register" class="home-btn outline">Register</a>
+        </div>
+
+        <p class="home-note">
+            Start organizing your contacts in one place.
+        </p>
+    </div>
+</div>
+{% endblock %}

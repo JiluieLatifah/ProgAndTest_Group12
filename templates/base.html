@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PhoneBook Management</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar">
+    <div class="nav-left">
+        📘 <span>PhoneBook Management</span>
+    </div>
+
+    <nav class="nav-menu">
+    <a href="/dashboard"
+       class="{% if request.path == '/dashboard' %}active{% endif %}">
+        Dashboard
+    </a>
+
+    <a href="/contacts"
+       class="{% if '/contacts' in request.path %}active{% endif %}">
+        Contacts
+    </a>
+
+    <a href="/groups"
+       class="{% if '/groups' in request.path %}active{% endif %}">
+        Groups
+    </a>
+
+    <a href="/login" class="logout">
+        Logout
+    </a>
+</nav>
+
+</header>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="page">
+    <div class="page-container">
+        {% block content %}{% endblock %}
+    </div>
+</main>
+
+</body>
+</html>

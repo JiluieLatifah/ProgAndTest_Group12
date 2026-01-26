@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="center-wrapper">
+    <div class="card center-card">
+        <h2>Create Account</h2>
+        <p class="auth-subtitle">
+            Create your account to manage contacts easily
+        </p>
+
+        <form>
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter your full name" required>
+
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <label>Password</label>
+            <input type="password" placeholder="Create a password" required>
+
+            <label>Phone Number</label>
+            <input type="text" placeholder="Optional">
+
+            <button type="submit">Register</button>
+        </form>
+
+        <div class="auth-link">
+            Already have an account?
+            <a href="/login">Login here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

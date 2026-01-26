@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="center-wrapper">
+    <div class="card center-card" style="max-width:480px;"
+         data-group-id="{{ group_id if group_id is defined else '' }}"
+         id="groupContainer">
+
+
+        <!-- TITLE -->
+        <h2 style="margin-bottom:6px; text-align:center;">
+            Add / Edit Group
+        </h2>
+        <p style="margin-bottom:22px; font-size:14px; color:#b0b0b0; text-align:center;">
+            Create or update a contact group
+        </p>
+
+        <!-- GROUP FORM -->
+        <form id="groupForm">
+
+            <!-- Hidden ID (dùng cho edit sau này) -->
+            <input type="hidden" name="id" value="">
+
+            <label>Group Name</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter group name"
+                required
+            >
+
+            <label>Description</label>
+            <input
+                type="text"
+                name="description"
+                placeholder="Enter description (optional)"
+            >
+
+            <!-- ACTION BUTTONS -->
+            <div style="display:flex; gap:12px; margin-top:18px;">
+                <button
+                    type="submit"
+                    class="add-btn"
+                    style="flex:1;"
+                >
+                    Save Group
+                </button>
+
+                <a
+                    href="/groups"
+                    class="add-btn"
+                    style="flex:1; background:#7f8c8d; text-align:center;"
+                >
+                    Cancel
+                </a>
+            </div>
+        </form>
+
+        <!-- MESSAGE -->
+        <p
+            id="groupMsg"
+            style="margin-top:14px; font-size:14px; text-align:center;"
+        ></p>
+
+    </div>
+</div>
+
+<!-- AJAX SCRIPT -->
+<script src="{{ url_for('static', filename='group.js') }}"></script>
+<body data-group-id="{{ group_id if group_id is defined else '' }}"></body>
+{% endblock %}

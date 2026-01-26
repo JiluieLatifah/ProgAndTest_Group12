@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+        <h2>Dashboard</h2>
+    </div>
+
+    <!-- DASHBOARD CONTENT -->
+    <p style="color:#04ebf3; margin-bottom:20px;">
+        Welcome to the PhoneBook Management System.  
+        Use the functions below to manage your contacts and groups.
+    </p>
+
+    <!-- QUICK ACTIONS -->
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+
+        <div class="card" style="flex:1; min-width:220px;">
+            <h3>Contacts</h3>
+            <p>View, add, edit, and delete contacts.</p>
+            <a href="/contacts" class="add-btn">Go to Contacts</a>
+        </div>
+
+        <div class="card" style="flex:1; min-width:220px;">
+            <h3>Groups</h3>
+            <p>Manage contact groups.</p>
+            <a href="/groups" class="add-btn">Go to Groups</a>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

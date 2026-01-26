@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="center-wrapper">
+    <div class="card center-card">
+        <h2>Welcome</h2>
+        <p class="auth-subtitle">
+            Login to access your phonebook
+        </p>
+
+        <form>
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="auth-link">
+            Don’t have an account?
+            <a href="/register">Register here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
