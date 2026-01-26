@@ -1,8 +1,117 @@
 from flask import Flask, request, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User, AddressBook, Contact, Group
+from flask import Flask, render_template, request, jsonify
 
 app = Flask(__name__)
+
+# ================== RENDER TEMPLATES ==================
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+# ---------- AUTH ----------
+@app.route('/login')
+def login_page():  
+    return render_template('login.html')
+
+
+@app.route('/register')
+def register_page():
+    return render_template('register.html')
+
+
+# ---------- DASHBOARD ----------
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
+
+# ---------- CONTACT ----------
+@app.route('/contacts')
+def contact_list():
+    return render_template('contact_list.html')
+
+
+@app.route('/contact/add')
+def add_contact_page():
+    return render_template('contact_form.html')
+
+
+@app.route('/contact/edit')
+def edit_contact_page():
+    return render_template('contact_form.html')
+
+
+# ---------- GROUP ----------
+@app.route('/groups')
+def group_list():
+    return render_template('group_manage.html')
+
+
+@app.route('/group/add')
+def add_group_page():
+    return render_template('group_form.html')
+
+@app.route('/group/edit/<int:group_id>')
+def edit_group_page(group_id):
+    return render_template('group_form.html', group_id=group_id)
+
+
+# ---------- AJAX CONTACT ----------
+
+@app.route('/api/contact/add', methods=['POST'])
+def api_add_contact():
+    name = request.form.get('name')
+    email = request.form.get('email')
+    phone = request.form.get('phone')
+
+    print("ADD CONTACT:", name, email, phone)
+
+    return jsonify(status="success")
+
+@app.route('/api/contact/edit', methods=['POST'])
+def api_edit_contact():
+    contact_id = request.form.get('id')
+    name = request.form.get('name')
+    email = request.form.get('email')
+    phone = request.form.get('phone')
+
+    print("EDIT CONTACT:", contact_id, name, email, phone)
+
+    return jsonify(status="success", message="Contact updated")
+
+
+
+# ---------- AJAX GROUP ----------
+
+@app.route('/api/group/add', methods=['POST'])
+def api_add_group():
+    name = request.form.get('name')
+
+    print("ADD GROUP:", name)
+
+    return jsonify(status="success")
+
+
+@app.route('/api/group/edit', methods=['POST'])
+def api_edit_group():
+    group_id = request.form.get('id')
+    name = request.form.get('name')
+
+    print("EDIT GROUP:", group_id, name)
+
+    return jsonify(status="success", message="Group updated")
+
+
+# ================== RUN APP ==================
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
+
 # Cấu hình database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///address_book.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
