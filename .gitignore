@@ -1,15 +1,15 @@
-# Python cache (File rác sinh ra khi chạy code)
-__pycache__
-.py[cod]
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
 
-# Môi trường ảo (Nếu ai đó cài venv trong thư mục dự án)
-venv
-.venv
-env
+# Database (Cực kỳ quan trọng)
+instance/
+*.db
+*.sqlite
 
-# Database SQLite (Nếu nhóm dùng SQLite để test, đừng đẩy file data lên)
-.sqlite3
-
-# File cấu hình của trình soạn thảo
-.vscode
-.idea
+# IDE
+.vscode/
+.idea/
