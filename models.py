@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String, Date, ForeignKey, Table, Text
 from sqlalchemy.orm import relationship, declarative_base
-from datetime import date
+from datetime import datetime
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
 
@@ -21,7 +21,13 @@ class User(db.Model):
     fullname = Column(String(100), nullable=False)
     email = Column(String(100), unique=True, nullable=False)
     password = Column(String(100), nullable=False)
-    date_of_birth = Column(Date)
+    date_of_birth = Column(db.Date, nullable=True)
+    def __init__(self, **kwargs):
+    # Chỉ ép kiểu duy nhất cho trường date_of_birth nếu nó tồn tại
+        dob = kwargs.get('date_of_birth')
+        if dob and isinstance(dob, datetime):
+            kwargs['date_of_birth'] = dob.date()
+        super(User, self).__init__(**kwargs)
     gender = Column(String(10))
     address = Column(String(255))
     phoneNumber = Column(String(15))
@@ -37,7 +43,7 @@ class AddressBook(db.Model):
 
     book_id = Column(Integer, primary_key=True, autoincrement=True)
     book_name = Column(String(100), nullable=False)
-    createdDate = Column(Date, default=func.now())
+    createdDate = Column(db.DateTime, server_default=func.now())
     # Foreign key tới User
     user_id = Column(Integer, ForeignKey('users.user_id'), nullable=False)
 
