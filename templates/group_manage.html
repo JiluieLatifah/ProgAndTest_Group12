@@ -20,41 +20,24 @@
         </thead>
 
         <tbody>
-            <!-- GROUP 1 -->
-            <tr>
-                <td>Family</td>
-                <td>Family contacts</td>
-                <td class="action">
-                    <a href="/group/edit/1" class="edit">Edit</a>
-                    <a href="#" class="delete"
-                       onclick="return confirm('Are you sure you want to delete this group?')">
-                        Delete
-                    </a>
-                </td>
-            </tr>
-
-            <!-- GROUP 2 -->
-            <tr>
-                <td>Friends</td>
-                <td>Close friends</td>
-                <td class="action">
-                    <a href="/group/edit/2" class="edit">Edit</a>
-                    <a href="#" class="delete"
-                       onclick="return confirm('Are you sure you want to delete this group?')">
-                        Delete
-                    </a>
-                </td>
-            </tr>
-
-            <!-- EMPTY STATE (dùng sau này khi không có group) -->
-            <!--
-            <tr>
-                <td colspan="3" style="text-align:center; padding:20px; color:#aaa;">
-                    No groups available
-                </td>
-            </tr>
-            -->
-        </tbody>
+    {% for group in groups %}
+    <tr>
+        <td>{{ group.group_name }}</td>
+        <td>{{ group.description if group.description else 'No description' }}</td>
+        <td class="action">
+            <a href="/group/edit/{{ group.group_id }}" class="edit">Edit</a>
+            <a href="/group/delete/{{ group.group_id }}" class="delete"
+               onclick="return confirm('Are you sure?')">Delete</a>
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="3" style="text-align:center; padding:20px; color:#aaa;">
+            Chưa có nhóm nào trong Database.
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>
     </table>
 
 </div>

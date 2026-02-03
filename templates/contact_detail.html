@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-container">
+    <div class="card">
+        <div class="page-header">
+            <h2>Contact Details</h2>
+            <a href="/contacts" class="add-btn" style="background: #95a5a6;">Back to List</a>
+        </div>
+        
+        <div style="margin-top: 20px; line-height: 2;">
+            <p><strong>Full Name:</strong> {{ contact.name }}</p>
+            <p><strong>Email:</strong> {{ contact.email or 'N/A' }}</p>
+            <p><strong>Phone Number:</strong> {{ contact.phone or 'N/A' }}</p>
+        </div>
+
+        <div style="margin-top: 30px; display: flex; gap: 10px;">
+            <a href="/contact/edit/{{ contact.contact_id }}" class="add-btn">Edit Contact</a>
+            
+            <a href="/contact/delete/{{ contact.contact_id }}" 
+               class="add-btn" 
+               style="background: #e74c3c;"
+               onclick="return confirm('Are you sure?')">Delete</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

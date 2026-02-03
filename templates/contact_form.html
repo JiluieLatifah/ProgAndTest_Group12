@@ -1,63 +1,34 @@
 {% extends "base.html" %}
+
 {% block content %}
-
-<div class="center-wrapper">
-    <div class="card center-card" style="max-width:480px;">
-
-        <!-- TITLE -->
-        <h2 style="margin-bottom:6px; text-align:center;">
-            Add / Edit Contact
-        </h2>
-        <p style="margin-bottom:22px; font-size:14px; color:#b0b0b0; text-align:center;">
-            Create or update contact information
-        </p>
-
-        <!-- FORM -->
+<div class="page-container">
+    <div class="card">
+        <h2>{{ 'Edit Contact' if contact else 'Add New Contact' }}</h2>
+        
         <form id="contactForm">
+            <input type="hidden" name="id" value="{{ contact.contact_id if contact else '' }}">
 
-                <!-- ID ẨN - PHÂN BIỆT ADD / EDIT -->
-            <input type="hidden" name="id" value="{{ contact.id if contact else '' }}">
+            <label>Full Name</label>
+            <input type="text" name="name" value="{{ contact.name if contact else '' }}" required placeholder="Enter name">
 
-            <label>Name</label>
-            <input
-                type="text"
-                name="name"
-                placeholder="Enter full name"
-                required
-            >
+            <label>Email Address</label>
+            <input type="email" name="email" value="{{ contact.email if contact else '' }}" placeholder="Enter email">
 
-            <label>Email</label>
-            <input
-                type="email"
-                name="email"
-                placeholder="Enter email address"
-            >
+            <label>Phone Number</label>
+            <input type="text" name="phone" value="{{ contact.phone if contact else '' }}" placeholder="Enter phone number">
 
-            <label>Phone</label>
-            <input
-                type="text"
-                name="phone"
-                placeholder="Enter phone number"
-            >
-
-            <button
-                type="submit"
-                class="add-btn"
-                style="margin-top:14px; width:100%;"
-            >
-                Save Contact
+            <button type="submit" class="add-btn" style="margin-top: 20px; width: 100%;">
+                {{ 'Update Contact' if contact else 'Save Contact' }}
             </button>
+            
+            <p id="msg" style="margin-top: 15px; text-align: center;"></p>
         </form>
-
-        <!-- MESSAGE -->
-        <p
-            id="msg"
-            style="margin-top:14px; font-size:14px; text-align:center;"
-        ></p>
-
+        
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="/contacts" style="color: #bbb; text-decoration: none; font-size: 14px;">← Back to List</a>
+        </div>
     </div>
 </div>
 
-<!-- AJAX SCRIPT -->
 <script src="{{ url_for('static', filename='contact.js') }}"></script>
 {% endblock %}
